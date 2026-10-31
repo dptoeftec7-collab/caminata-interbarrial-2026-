@@ -38,7 +38,7 @@ const schemas={
 let dataset=null,active='';
 const el=id=>document.getElementById(id);
 function node(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=String(txt);return n;}
-async function load(){const response=await fetch('./datos_caminata_2026.json',{cache:'no-store'});if(!response.ok)throw new Error('Error HTTP '+response.status);const json=await response.json();if(!json||typeof json!=='object')throw Error('Formato inválido');return json;}
+async function load(){const response = await fetch('https://script.google.com/macros/s/AKfycbzoXyN7X-C99lNhvedU5SgJLoecF5xPBJ9_NUHad1k3cD7qeY3eEaaxws1KnqR6kxwewQ/exec?formato=json',{cache:'no-store'});if(!response.ok)throw new Error('Error HTTP '+response.status);const json=await response.json();if(!json||typeof json!=='object')throw Error('Formato inválido');return json;}
 function addMessage(target,message){target.append(node('div','message',message));}
 function draw(items){const target=el('results');target.replaceChildren();if(!items.length){addMessage(target,active==='comunicados'?'Todavía no hay comunicados publicados.':'No se encontraron registros.');return;}
 const schema=schemas[active];for(const record of items){const card=node('article','card');const heading=node('h3','',record[schema.name]||'Sin título');card.append(heading);
