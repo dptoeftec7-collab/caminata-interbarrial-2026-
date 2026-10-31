@@ -13,6 +13,10 @@
 <header><h1>🚶 Caminata Interbarrial 2026</h1><p>Construyendo un proyecto común<br>desde una perspectiva emancipadora</p></header>
 <main class="wrap">
 <section id="home"><div class="intro"><h3>📅 Miércoles 4 de noviembre</h3><p>🕘 Jornada: 9:00 a 12:30 hs<br>📍 Gregorio de Laferrere</p><strong>Encuentro de instituciones educativas</strong><p><small>Recepción de escuelas prevista desde las 8:30 (por confirmar).</small></p></div>
+ <div id="novedades" class="panel" style="display:none; margin-bottom:20px; border-left:5px solid #f59e0b;">
+  <h3>🔔 Novedades importantes</h3>
+  <div id="lista-novedades"></div>
+</div>
 <div class="grid">
 <button class="tile" data-section="cronograma"><span>🗓️</span>Cronograma</button>
 <button class="tile" data-section="recorrido"><span>🗺️</span>Recorrido</button>
@@ -46,14 +50,61 @@ for(const [key,label] of schema.fields){const value=record[key];if(value===undef
 if(label==='Estado'){card.append(node('span','chip '+(/confirmar/i.test(String(value))?'pending':''),'Estado: '+value));continue;}
 const p=node('p');const strong=node('strong','',label+': ');p.append(strong,document.createTextNode(String(value)));card.append(p);}
 target.append(card);}}
+ function mostrarNovedades() {
+  const panel = document.getElementById('novedades');
+  const lista = document.getElementById('lista-novedades');
+
+  if (!panel || !lista) return;
+
+  lista.replaceChildren();
+
+  const comunicados = Array.isArray(dataset?.comunicados)
+    ? dataset.comunicados
+    : [];
+
+  const publicados = comunicados.filter(c =>
+    String(c.Estado || '').trim().toLowerCase() === 'publicado'
+  );
+
+  if (publicados.length === 0) {
+    panel.style.display = 'none';
+    return;
+  }
+
+  publicados.forEach(c => {
+    const bloque = document.createElement('div');
+    bloque.style.marginBottom = '12px';
+
+    const titulo = document.createElement('strong');
+    titulo.textContent = c['Título'] || 'Comunicado';
+
+    const mensaje = document.createElement('p');
+    mensaje.textContent = c['Mensaje'] || '';
+
+    bloque.appendChild(titulo);
+    bloque.appendChild(mensaje);
+
+    lista.appendChild(bloque);
+  });
+
+  panel.style.display = 'block';
+}
 function render(){const content=el('content');content.replaceChildren();if(!dataset){addMessage(content,'Cargando información…');return;}
 const records=dataset[active];if(!Array.isArray(records)){addMessage(content,'Esta sección todavía no está disponible.');return;}
 if(active==='instituciones'){const search=node('input','field');search.type='search';search.placeholder='Buscar institución…';search.setAttribute('aria-label','Buscar institución');content.append(search);const results=node('div');results.id='results';content.append(results);const filter=()=>draw(records.filter(r=>String(r['Institución']||'').toLocaleLowerCase('es').includes(search.value.trim().toLocaleLowerCase('es'))));search.addEventListener('input',filter);filter();}
 else{const results=node('div');results.id='results';content.append(results);draw(records);}}
 async function openSection(section){active=section;el('home').classList.add('hidden');el('detail').classList.remove('hidden');el('heading').textContent=titles[section];window.scrollTo(0,0);
-if(!dataset){try{dataset=await load();}catch(err){const target=el('content');target.replaceChildren();addMessage(target,'No pudimos cargar la información. Comprobá tu conexión e intentá nuevamente.');const retry=node('button','retry','Reintentar');retry.addEventListener('click',()=>openSection(section));target.append(retry);return;}}
+if(!dataset){try{dataset=await load();mostrarNovedades();}catch(err){const target=el('content');target.replaceChildren();addMessage(target,'No pudimos cargar la información. Comprobá tu conexión e intentá nuevamente.');const retry=node('button','retry','Reintentar');retry.addEventListener('click',()=>openSection(section));target.append(retry);return;}}
 render();}
 function back(){el('detail').classList.add('hidden');el('home').classList.remove('hidden');window.scrollTo(0,0);}
 document.querySelectorAll('[data-section]').forEach(b=>b.addEventListener('click',()=>openSection(b.dataset.section)));el('back').addEventListener('click',back);
+ load()
+  .then(datos => {
+    dataset = datos;
+    mostrarNovedades();
+  })
+  .catch(error => {
+    console.error('Error al cargar novedades:', error);
+  });
 </script>
 </body></html>
