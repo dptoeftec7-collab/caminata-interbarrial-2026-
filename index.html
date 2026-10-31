@@ -1,220 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0879bd">
-
-  <title>Caminata Interbarrial 2026</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f7fc;
-      color: #17324d;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0879bd, #69c9ed);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      font-size: 27px;
-      margin: 0 0 12px;
-    }
-
-    header p {
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .contenedor {
-      max-width: 850px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .informacion {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 12px #00000012;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .boton {
-      background: white;
-      border: none;
-      border-radius: 16px;
-      padding: 25px 10px;
-      font-size: 16px;
-      color: #174b70;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 3px 12px #00000012;
-    }
-
-    .boton span {
-      display: block;
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
-
-    .boton:active {
-      background: #d9effb;
-    }
-
-    .panel {
-      display: none;
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin-top: 25px;
-      box-shadow: 0 3px 12px #00000012;
-    }
-
-    .volver {
-      background: #0879bd;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      font-size: 13px;
-      color: #64748b;
-    }
-
-    @media (max-width: 360px) {
-      .menu {
-        gap: 10px;
-      }
-
-      .boton {
-        font-size: 14px;
-        padding: 20px 5px;
-      }
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#237fc2">
+<title>Caminata Interbarrial 2026</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef7fd;color:#183550;font-family:Arial,Helvetica,sans-serif}header{background:linear-gradient(110deg,#287ec2,#64c6e8);color:#fff;text-align:center;padding:35px 18px}header h1{font-size:clamp(22px,4vw,28px);margin:0 0 12px}header p{line-height:1.5;margin:0}.wrap{max-width:800px;margin:auto;padding:20px 14px}.intro,.panel,.tile{background:white;border-radius:15px;box-shadow:0 4px 12px #0e355214}.intro{text-align:center;padding:20px;margin-bottom:20px}.intro p{line-height:1.5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.tile{border:0;cursor:pointer;padding:24px 8px;font-size:15px;font-weight:700;color:#164a75;min-height:115px}.tile span{display:block;font-size:32px;margin-bottom:10px}.tile:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f6b935;outline-offset:2px}.panel{padding:22px;margin:0 0 20px}.panel h2{margin:0 0 18px;font-size:23px}.card{border-left:4px solid #2684c9;background:#f3f9fe;padding:16px;border-radius:10px;margin:12px 0;overflow-wrap:anywhere}.card h3{margin:0 0 10px;font-size:17px}.card p{margin:7px 0;line-height:1.45}.chip{display:inline-block;border-radius:12px;padding:6px 10px;background:#e5f1fc;color:#13598c;font-size:13px;font-weight:700;margin-bottom:10px}.pending{background:#fff0c5;color:#775400}.field{width:100%;border:1px solid #9eb2c2;border-radius:9px;padding:13px;font-size:16px;margin:0 0 14px}.back,.retry{border:0;border-radius:9px;background:#237fc2;color:#fff;padding:12px 16px;font-weight:bold;cursor:pointer;margin-top:15px}.message{background:#fff2cf;border-radius:10px;padding:14px;line-height:1.5}footer{text-align:center;font-size:12px;color:#607b8e;padding:12px 0 25px}.hidden{display:none!important}@media(max-width:390px){.tile{font-size:14px;padding:20px 5px}.wrap{padding:14px 10px}.panel{padding:15px}}
+</style>
 </head>
-
 <body>
-
-<header>
-  <h1>🚶 Caminata Interbarrial 2026</h1>
-  <p>
-    Construyendo un proyecto común<br>
-    desde una perspectiva emancipadora
-  </p>
-</header>
-
-<div class="contenedor">
-
-  <div id="inicio">
-
-    <div class="informacion">
-      <h3>📅 Miércoles 4 de noviembre</h3>
-      <p>🕘 9:00 a 12:30 hs</p>
-      <p>📍 Gregorio de Laferrere</p>
-      <strong>Encuentro de instituciones educativas</strong>
-    </div>
-
-    <div class="menu">
-
-      <button class="boton" onclick="abrir('cronograma')">
-        <span>📅</span>Cronograma
-      </button>
-
-      <button class="boton" onclick="abrir('recorrido')">
-        <span>🗺️</span>Recorrido
-      </button>
-
-      <button class="boton" onclick="abrir('instituciones')">
-        <span>🏫</span>Instituciones
-      </button>
-
-      <button class="boton" onclick="abrir('ubicaciones')">
-        <span>📍</span>Mapa de la plaza
-      </button>
-
-      <button class="boton" onclick="abrir('servicios')">
-        <span>🚰</span>Servicios
-      </button>
-
-      <button class="boton" onclick="abrir('comunicados')">
-        <span>📢</span>Comunicados
-      </button>
-
-    </div>
-  </div>
-
-  <div id="panel" class="panel">
-    <h2 id="titulo"></h2>
-
-    <p>
-      Esta sección se encuentra en preparación.
-      Próximamente estará disponible la información
-      actualizada del evento.
-    </p>
-
-    <button class="volver" onclick="volver()">
-      ← Volver al inicio
-    </button>
-  </div>
-
-</div>
-
-<footer>
-  Caminata Interbarrial 2026<br>
-  Gregorio de Laferrere
-</footer>
-
+<header><h1>🚶 Caminata Interbarrial 2026</h1><p>Construyendo un proyecto común<br>desde una perspectiva emancipadora</p></header>
+<main class="wrap">
+<section id="home"><div class="intro"><h3>📅 Miércoles 4 de noviembre</h3><p>🕘 Jornada: 9:00 a 12:30 hs<br>📍 Gregorio de Laferrere</p><strong>Encuentro de instituciones educativas</strong><p><small>Recepción de escuelas prevista desde las 8:30 (por confirmar).</small></p></div>
+<div class="grid">
+<button class="tile" data-section="cronograma"><span>🗓️</span>Cronograma</button>
+<button class="tile" data-section="recorrido"><span>🗺️</span>Recorrido</button>
+<button class="tile" data-section="instituciones"><span>🏫</span>Instituciones</button>
+<button class="tile" data-section="ubicaciones"><span>📍</span>Mapa de la plaza</button>
+<button class="tile" data-section="servicios"><span>🚰</span>Servicios y seguridad</button>
+<button class="tile" data-section="comunicados"><span>📢</span>Comunicados</button>
+</div></section>
+<section id="detail" class="panel hidden" aria-live="polite"><h2 id="heading"></h2><div id="content"></div><button class="back" id="back">← Volver al inicio</button></section>
+<footer>Caminata Interbarrial 2026<br>Gregorio de Laferrere</footer>
+</main>
 <script>
-  const titulos = {
-    cronograma: "📅 Cronograma",
-    recorrido: "🗺️ Recorrido",
-    instituciones: "🏫 Instituciones",
-    ubicaciones: "📍 Distribución de la plaza",
-    servicios: "🚰 Servicios y seguridad",
-    comunicados: "📢 Comunicados"
-  };
-
-  function abrir(seccion) {
-    document.getElementById("inicio").style.display = "none";
-    document.getElementById("panel").style.display = "block";
-
-    document.getElementById("titulo").textContent = titulos[seccion];
-
-    window.scrollTo(0, 0);
-  }
-
-  function volver() {
-    document.getElementById("panel").style.display = "none";
-    document.getElementById("inicio").style.display = "block";
-
-    window.scrollTo(0, 0);
-  }
+'use strict';
+const titles={cronograma:'🗓️ Cronograma',recorrido:'🗺️ Recorrido',instituciones:'🏫 Instituciones',ubicaciones:'📍 Distribución de la plaza',servicios:'🚰 Servicios y seguridad',comunicados:'📢 Comunicados'};
+const schemas={
+ instituciones:{name:'Institución',fields:[['Nivel / modalidad','Nivel'],['Color / identificación','Identificación'],['Actividad informada','Actividades'],['Viandas solicitadas','Viandas solicitadas'],['Estado de confirmación','Estado']]},
+ cronograma:{name:'Actividad',fields:[['Hora','Hora'],['Lugar','Lugar'],['Estado','Estado'],['Observaciones','Observaciones']]},
+ recorrido:{name:'Punto / tramo',fields:[['Orden','Orden'],['Referencia','Referencia'],['Estado','Estado'],['Observaciones','Observaciones']]},
+ ubicaciones:{name:'Institución / grupo',fields:[['Sector según croquis','Sector según croquis'],['Estado','Estado'],['Observaciones','Observaciones']]},
+ servicios:{name:'Servicio',fields:[['Ubicación / responsable','Ubicación / responsable'],['Estado','Estado'],['Detalle','Detalle']]},
+ comunicados:{name:'Título',fields:[['Fecha','Fecha'],['Mensaje','Mensaje'],['Estado','Estado']]}
+};
+let dataset=null,active='';
+const el=id=>document.getElementById(id);
+function node(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=String(txt);return n;}
+async function load(){const response=await fetch('./datos_caminata_2026.json',{cache:'no-store'});if(!response.ok)throw new Error('Error HTTP '+response.status);const json=await response.json();if(!json||typeof json!=='object')throw Error('Formato inválido');return json;}
+function addMessage(target,message){target.append(node('div','message',message));}
+function draw(items){const target=el('results');target.replaceChildren();if(!items.length){addMessage(target,active==='comunicados'?'Todavía no hay comunicados publicados.':'No se encontraron registros.');return;}
+const schema=schemas[active];for(const record of items){const card=node('article','card');const heading=node('h3','',record[schema.name]||'Sin título');card.append(heading);
+for(const [key,label] of schema.fields){const value=record[key];if(value===undefined||value===null||String(value).trim()==='')continue;
+if(label==='Estado'){card.append(node('span','chip '+(/confirmar/i.test(String(value))?'pending':''),'Estado: '+value));continue;}
+const p=node('p');const strong=node('strong','',label+': ');p.append(strong,document.createTextNode(String(value)));card.append(p);}
+target.append(card);}}
+function render(){const content=el('content');content.replaceChildren();if(!dataset){addMessage(content,'Cargando información…');return;}
+const records=dataset[active];if(!Array.isArray(records)){addMessage(content,'Esta sección todavía no está disponible.');return;}
+if(active==='instituciones'){const search=node('input','field');search.type='search';search.placeholder='Buscar institución…';search.setAttribute('aria-label','Buscar institución');content.append(search);const results=node('div');results.id='results';content.append(results);const filter=()=>draw(records.filter(r=>String(r['Institución']||'').toLocaleLowerCase('es').includes(search.value.trim().toLocaleLowerCase('es'))));search.addEventListener('input',filter);filter();}
+else{const results=node('div');results.id='results';content.append(results);draw(records);}}
+async function openSection(section){active=section;el('home').classList.add('hidden');el('detail').classList.remove('hidden');el('heading').textContent=titles[section];window.scrollTo(0,0);
+if(!dataset){try{dataset=await load();}catch(err){const target=el('content');target.replaceChildren();addMessage(target,'No pudimos cargar la información. Comprobá tu conexión e intentá nuevamente.');const retry=node('button','retry','Reintentar');retry.addEventListener('click',()=>openSection(section));target.append(retry);return;}}
+render();}
+function back(){el('detail').classList.add('hidden');el('home').classList.remove('hidden');window.scrollTo(0,0);}
+document.querySelectorAll('[data-section]').forEach(b=>b.addEventListener('click',()=>openSection(b.dataset.section)));el('back').addEventListener('click',back);
 </script>
-
-</body>
-</html>
+</body></html>
