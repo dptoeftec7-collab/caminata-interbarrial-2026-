@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0879bd">
+
+  <title>Caminata Interbarrial 2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f7fc;
+      color: #17324d;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0879bd, #69c9ed);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      font-size: 27px;
+      margin: 0 0 12px;
+    }
+
+    header p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .contenedor {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .informacion {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .boton {
+      background: white;
+      border: none;
+      border-radius: 16px;
+      padding: 25px 10px;
+      font-size: 16px;
+      color: #174b70;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .boton span {
+      display: block;
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .boton:active {
+      background: #d9effb;
+    }
+
+    .panel {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 25px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    .volver {
+      background: #0879bd;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    @media (max-width: 360px) {
+      .menu {
+        gap: 10px;
+      }
+
+      .boton {
+        font-size: 14px;
+        padding: 20px 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚶 Caminata Interbarrial 2026</h1>
+  <p>
+    Construyendo un proyecto común<br>
+    desde una perspectiva emancipadora
+  </p>
+</header>
+
+<div class="contenedor">
+
+  <div id="inicio">
+
+    <div class="informacion">
+      <h3>📅 Miércoles 4 de noviembre</h3>
+      <p>🕘 9:00 a 12:30 hs</p>
+      <p>📍 Gregorio de Laferrere</p>
+      <strong>Encuentro de instituciones educativas</strong>
+    </div>
+
+    <div class="menu">
+
+      <button class="boton" onclick="abrir('cronograma')">
+        <span>📅</span>Cronograma
+      </button>
+
+      <button class="boton" onclick="abrir('recorrido')">
+        <span>🗺️</span>Recorrido
+      </button>
+
+      <button class="boton" onclick="abrir('instituciones')">
+        <span>🏫</span>Instituciones
+      </button>
+
+      <button class="boton" onclick="abrir('ubicaciones')">
+        <span>📍</span>Mapa de la plaza
+      </button>
+
+      <button class="boton" onclick="abrir('servicios')">
+        <span>🚰</span>Servicios
+      </button>
+
+      <button class="boton" onclick="abrir('comunicados')">
+        <span>📢</span>Comunicados
+      </button>
+
+    </div>
+  </div>
+
+  <div id="panel" class="panel">
+    <h2 id="titulo"></h2>
+
+    <p>
+      Esta sección se encuentra en preparación.
+      Próximamente estará disponible la información
+      actualizada del evento.
+    </p>
+
+    <button class="volver" onclick="volver()">
+      ← Volver al inicio
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  Caminata Interbarrial 2026<br>
+  Gregorio de Laferrere
+</footer>
+
+<script>
+  const titulos = {
+    cronograma: "📅 Cronograma",
+    recorrido: "🗺️ Recorrido",
+    instituciones: "🏫 Instituciones",
+    ubicaciones: "📍 Distribución de la plaza",
+    servicios: "🚰 Servicios y seguridad",
+    comunicados: "📢 Comunicados"
+  };
+
+  function abrir(seccion) {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("panel").style.display = "block";
+
+    document.getElementById("titulo").textContent = titulos[seccion];
+
+    window.scrollTo(0, 0);
+  }
+
+  function volver() {
+    document.getElementById("panel").style.display = "none";
+    document.getElementById("inicio").style.display = "block";
+
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
