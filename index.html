@@ -14,7 +14,7 @@
 <main class="wrap">
 <section id="home"><div class="intro"><h3>📅 Miércoles 4 de noviembre</h3><p>🕘 Jornada: 9:00 a 12:30 hs<br>📍 Gregorio de Laferrere</p><strong>Encuentro de instituciones educativas</strong><p><small>Recepción de escuelas prevista desde las 8:30 (por confirmar).</small></p></div>
  <div id="novedades" class="panel" style="display:none; margin-bottom:20px; border-left:5px solid #f59e0b;">
-  <h3>🔔 Novedades importantes</h3>
+  <h3>🔔 Novedades y comunicados</h3>
   <div id="lista-novedades"></div>
 </div>
 <div class="grid">
@@ -37,7 +37,7 @@ const schemas={
  recorrido:{name:'Punto / tramo',fields:[['Orden','Orden'],['Referencia','Referencia'],['Estado','Estado'],['Observaciones','Observaciones']]},
  ubicaciones:{name:'Institución / grupo',fields:[['Sector según croquis','Sector según croquis'],['Estado','Estado'],['Observaciones','Observaciones']]},
  servicios:{name:'Servicio',fields:[['Ubicación / responsable','Ubicación / responsable'],['Estado','Estado'],['Detalle','Detalle']]},
- comunicados:{name:'Título',fields:[['Fecha','Fecha'],['Mensaje','Mensaje'],['Estado','Estado']]}
+ comunicados:{name:'Título',fields:[['Fecha publicación','Fecha'],['Prioridad','Prioridad'],['Mensaje','Mensaje'],['Estado','Estado']]}
 };
 let dataset=null,active='';
 const el=id=>document.getElementById(id);
@@ -62,18 +62,59 @@ target.append(card);}}
     ? dataset.comunicados
     : [];
 
-  const publicados = comunicados.filter(c =>
-    String(c.Estado || '').trim().toLowerCase() === 'publicado'
-  );
+  const publicados = comunicados
+    .filter(c =>
+      String(c.Estado || '').trim().toLowerCase() === 'publicado'
+    )
+    .sort((a, b) => {
+      const orden = { urgente: 0, importante: 1, normal: 2 };
+      const pa = String(a.Prioridad || 'normal').trim().toLowerCase();
+      const pb = String(b.Prioridad || 'normal').trim().toLowerCase();
+      return (orden[pa] ?? 2) - (orden[pb] ?? 2);
+    });
 
   if (publicados.length === 0) {
     panel.style.display = 'none';
     return;
   }
 
+  const estilos = {
+    urgente: {
+      color: '#dc2626',
+      fondo: '#fef2f2',
+      etiqueta: '🔴 URGENTE'
+    },
+    importante: {
+      color: '#d97706',
+      fondo: '#fffbeb',
+      etiqueta: '🟠 IMPORTANTE'
+    },
+    normal: {
+      color: '#2563eb',
+      fondo: '#eff6ff',
+      etiqueta: '🔵 INFORMACIÓN GENERAL'
+    }
+  };
+
   publicados.forEach(c => {
+    const prioridad = String(c.Prioridad || 'normal')
+      .trim()
+      .toLowerCase();
+
+    const estilo = estilos[prioridad] || estilos.normal;
+
     const bloque = document.createElement('div');
+    bloque.style.padding = '15px';
     bloque.style.marginBottom = '12px';
+    bloque.style.borderLeft = `5px solid ${estilo.color}`;
+    bloque.style.backgroundColor = estilo.fondo;
+    bloque.style.borderRadius = '8px';
+
+    const etiqueta = document.createElement('div');
+    etiqueta.textContent = estilo.etiqueta;
+    etiqueta.style.color = estilo.color;
+    etiqueta.style.fontWeight = 'bold';
+    etiqueta.style.marginBottom = '8px';
 
     const titulo = document.createElement('strong');
     titulo.textContent = c['Título'] || 'Comunicado';
@@ -81,6 +122,7 @@ target.append(card);}}
     const mensaje = document.createElement('p');
     mensaje.textContent = c['Mensaje'] || '';
 
+    bloque.appendChild(etiqueta);
     bloque.appendChild(titulo);
     bloque.appendChild(mensaje);
 
@@ -92,7 +134,7 @@ target.append(card);}}
 function render(){const content=el('content');content.replaceChildren();if(!dataset){addMessage(content,'Cargando información…');return;}
 const records=dataset[active];if(!Array.isArray(records)){addMessage(content,'Esta sección todavía no está disponible.');return;}
 if(active==='instituciones'){const search=node('input','field');search.type='search';search.placeholder='Buscar institución…';search.setAttribute('aria-label','Buscar institución');content.append(search);const results=node('div');results.id='results';content.append(results);const filter=()=>draw(records.filter(r=>String(r['Institución']||'').toLocaleLowerCase('es').includes(search.value.trim().toLocaleLowerCase('es'))));search.addEventListener('input',filter);filter();}
-else{const results=node('div');results.id='results';content.append(results);draw(records);}}
+else{const results=node('div');results.id='results';content.append(results);draw(active==='comunicados'?records.filter(c=>String(c.Estado||'').trim().toLowerCase()==='publicado'):records);}}
 async function openSection(section){active=section;el('home').classList.add('hidden');el('detail').classList.remove('hidden');el('heading').textContent=titles[section];window.scrollTo(0,0);
 if(!dataset){try{dataset=await load();mostrarNovedades();}catch(err){const target=el('content');target.replaceChildren();addMessage(target,'No pudimos cargar la información. Comprobá tu conexión e intentá nuevamente.');const retry=node('button','retry','Reintentar');retry.addEventListener('click',()=>openSection(section));target.append(retry);return;}}
 render();}
