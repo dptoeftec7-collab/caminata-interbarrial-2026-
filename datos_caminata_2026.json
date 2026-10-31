@@ -1,0 +1,351 @@
+{
+  "instituciones": [
+    {
+      "Institución": "JI 979",
+      "Nivel / modalidad": "Inicial",
+      "Color / identificación": "Lila / Verde / Amarillo",
+      "Actividad informada": "",
+      "Viandas solicitadas": "60",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "Instituto Clarac",
+      "Nivel / modalidad": "Inicial",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 68",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 83",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "1.º naranja; 6.º remeras blancas «Las Malvinas son argentinas»",
+      "Actividad informada": "",
+      "Viandas solicitadas": "136",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 84",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 156",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 167",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EP 181",
+      "Nivel / modalidad": "Primario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EEE 519",
+      "Nivel / modalidad": "Especial",
+      "Color / identificación": "Rojo",
+      "Actividad informada": "Ta-te-ti de puntería; rompecabezas del cuerpo humano",
+      "Viandas solicitadas": "51",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "Instituto Quinquela Martín",
+      "Nivel / modalidad": "Varios niveles",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "Instituto P. Palacios",
+      "Nivel / modalidad": "Varios niveles",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "CFI 3",
+      "Nivel / modalidad": "Modalidad especial",
+      "Color / identificación": "Blanco y celeste (camiseta Argentina)",
+      "Actividad informada": "Carpa literaria; performance «Caminos que cruzan el tiempo»",
+      "Viandas solicitadas": "26",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 16",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "Chalecos gris/negro, letras blancas",
+      "Actividad informada": "Voz de la memoria; memotest; Jenga gigante; canción",
+      "Viandas solicitadas": "30",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 103",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "Turquesa",
+      "Actividad informada": "Ringo y Ringo Red junto a Técnica 7",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 119",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 150",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "Amarillo",
+      "Actividad informada": "Tangram; hidroponía; velas y jabones; reciclado",
+      "Viandas solicitadas": "49",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 158",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EES 159",
+      "Nivel / modalidad": "Secundario",
+      "Color / identificación": "Azul",
+      "Actividad informada": "Juegos interactivos y lectura de cuentos",
+      "Viandas solicitadas": "40",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EEST 7",
+      "Nivel / modalidad": "Secundario técnico",
+      "Color / identificación": "Remeras blancas",
+      "Actividad informada": "Ringo y Ringo Red junto a EES 103",
+      "Viandas solicitadas": "211",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EPA 711",
+      "Nivel / modalidad": "Adultos",
+      "Color / identificación": "Flúor",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "EPA 714",
+      "Nivel / modalidad": "Adultos",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "CENS 452",
+      "Nivel / modalidad": "Adultos",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    },
+    {
+      "Institución": "CENS 456",
+      "Nivel / modalidad": "Adultos",
+      "Color / identificación": "",
+      "Actividad informada": "",
+      "Viandas solicitadas": "",
+      "Estado de confirmación": "Por confirmar"
+    }
+  ],
+  "cronograma": [
+    {
+      "Hora": "8:30",
+      "Actividad": "Concentración y recepción de escuelas",
+      "Lugar": "EP 156",
+      "Estado": "Por confirmar",
+      "Observaciones": "Cronograma de página 3"
+    },
+    {
+      "Hora": "9:00",
+      "Actividad": "Inicio de la caminata",
+      "Lugar": "Calle Tres Cruces",
+      "Estado": "Por confirmar",
+      "Observaciones": ""
+    },
+    {
+      "Hora": "10:00",
+      "Actividad": "Llegada y apertura institucional",
+      "Lugar": "Plaza Altos de Laferrere",
+      "Estado": "Por confirmar",
+      "Observaciones": "En página 6 figura 10:00 aprox."
+    },
+    {
+      "Hora": "11:00",
+      "Actividad": "Actividades participativas simultáneas",
+      "Lugar": "Plaza Altos de Laferrere",
+      "Estado": "Por confirmar",
+      "Observaciones": "EF, arte, matemática, lenguaje, ESI"
+    },
+    {
+      "Hora": "12:00",
+      "Actividad": "Cierre comunitario y reconocimientos",
+      "Lugar": "Plaza Altos de Laferrere",
+      "Estado": "Por confirmar",
+      "Observaciones": ""
+    },
+    {
+      "Hora": "12:30",
+      "Actividad": "Finalización de jornada",
+      "Lugar": "Plaza Altos de Laferrere",
+      "Estado": "Por confirmar",
+      "Observaciones": "Acta página 9 menciona inicio estimativo 08:30"
+    }
+  ],
+  "recorrido": [
+    {
+      "Orden": "1",
+      "Punto / tramo": "Inicio",
+      "Referencia": "EP 156 — Ramón Freire y Tres Cruces",
+      "Estado": "Informado en proyecto",
+      "Observaciones": ""
+    },
+    {
+      "Orden": "2",
+      "Punto / tramo": "Trayecto",
+      "Referencia": "Calle Tres Cruces; barrios Centro y Km 24",
+      "Estado": "Informado en proyecto",
+      "Observaciones": "Corte parcial previsto"
+    },
+    {
+      "Orden": "3",
+      "Punto / tramo": "Llegada",
+      "Referencia": "Plaza Altos de Laferrere",
+      "Estado": "Informado en proyecto",
+      "Observaciones": ""
+    },
+    {
+      "Orden": "4",
+      "Punto / tramo": "Postas intermedias",
+      "Referencia": "Escuelas subsiguientes sobre Tres Cruces",
+      "Estado": "Por confirmar",
+      "Observaciones": "Acta página 9; sin detalle de cada posta"
+    }
+  ],
+  "ubicaciones": [
+    {
+      "Institución / grupo": "EEST 7 y EES 103",
+      "Sector según croquis": "Cancha / sector derecho inferior",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "EES 150",
+      "Sector según croquis": "Sector inferior izquierdo cercano al centro",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "EP 181 y EES 158",
+      "Sector según croquis": "Sector inferior izquierdo",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "EES 119 y EES 16",
+      "Sector según croquis": "Sector izquierdo",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "CFI 3",
+      "Sector según croquis": "Sector superior izquierdo",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "EEPA 711",
+      "Sector según croquis": "Sector superior",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    },
+    {
+      "Institución / grupo": "Pista de skate",
+      "Sector según croquis": "Sector superior derecho",
+      "Estado": "Según croquis pág. 10",
+      "Observaciones": "Verificar con responsables"
+    }
+  ],
+  "servicios": [
+    {
+      "Servicio": "Baños primario e inicial",
+      "Ubicación / responsable": "EP 83",
+      "Estado": "Informado en proyecto",
+      "Detalle": ""
+    },
+    {
+      "Servicio": "Baños secundario y adultos",
+      "Ubicación / responsable": "EES 119",
+      "Estado": "Informado en proyecto",
+      "Detalle": ""
+    },
+    {
+      "Servicio": "Hidratación",
+      "Ubicación / responsable": "Plaza; 6 u 8 mesas previstas",
+      "Estado": "Por confirmar",
+      "Detalle": "Ubicación de puntos pendiente"
+    },
+    {
+      "Servicio": "Frutas y viandas",
+      "Ubicación / responsable": "Recepción en EP 83",
+      "Estado": "Por confirmar",
+      "Detalle": "Distribución pendiente"
+    },
+    {
+      "Servicio": "Cortes de calles",
+      "Ubicación / responsable": "Municipio, Consejo Escolar, Guardia Urbana y organizaciones",
+      "Estado": "Previsto",
+      "Detalle": ""
+    },
+    {
+      "Servicio": "Audio plaza",
+      "Ubicación / responsable": "EP 83",
+      "Estado": "Acordado en acta",
+      "Detalle": "Acta del 22/10"
+    },
+    {
+      "Servicio": "Emergencias / contacto",
+      "Ubicación / responsable": "",
+      "Estado": "Por confirmar",
+      "Detalle": "No se informa número de contacto en el proyecto"
+    }
+  ],
+  "comunicados": []
+}
