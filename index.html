@@ -6,7 +6,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>Caminata Interbarrial 2026</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#eef7fd;color:#183550;font-family:Arial,Helvetica,sans-serif}header{background:linear-gradient(110deg,#287ec2,#64c6e8);color:#fff;text-align:center;padding:35px 18px}header h1{font-size:clamp(22px,4vw,28px);margin:0 0 12px}header p{line-height:1.5;margin:0}.wrap{max-width:800px;margin:auto;padding:20px 14px}.intro,.panel,.tile{background:white;border-radius:15px;box-shadow:0 4px 12px #0e355214}.intro{text-align:center;padding:20px;margin-bottom:20px}.intro p{line-height:1.5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.tile{border:0;cursor:pointer;padding:24px 8px;font-size:15px;font-weight:700;color:#164a75;min-height:115px}.tile span{display:block;font-size:32px;margin-bottom:10px}.tile:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f6b935;outline-offset:2px}.panel{padding:22px;margin:0 0 20px}.panel h2{margin:0 0 18px;font-size:23px}.card{border-left:4px solid #2684c9;background:#f3f9fe;padding:16px;border-radius:10px;margin:12px 0;overflow-wrap:anywhere}.card h3{margin:0 0 10px;font-size:17px}.card p{margin:7px 0;line-height:1.45}.chip{display:inline-block;border-radius:12px;padding:6px 10px;background:#e5f1fc;color:#13598c;font-size:13px;font-weight:700;margin-bottom:10px}.pending{background:#fff0c5;color:#775400}.field{width:100%;border:1px solid #9eb2c2;border-radius:9px;padding:13px;font-size:16px;margin:0 0 14px}.back,.retry{border:0;border-radius:9px;background:#237fc2;color:#fff;padding:12px 16px;font-weight:bold;cursor:pointer;margin-top:15px}.message{background:#fff2cf;border-radius:10px;padding:14px;line-height:1.5}footer{text-align:center;font-size:12px;color:#607b8e;padding:12px 0 25px}.hidden{display:none!important}@media(max-width:390px){.tile{font-size:14px;padding:20px 5px}.wrap{padding:14px 10px}.panel{padding:15px}}
+*{box-sizing:border-box}body{margin:0;background:#eef7fd;color:#183550;font-family:Arial,Helvetica,sans-serif}header{background:linear-gradient(110deg,#287ec2,#64c6e8);color:#fff;text-align:center;padding:35px 18px}header h1{font-size:clamp(22px,4vw,28px);margin:0 0 12px}header p{line-height:1.5;margin:0}.wrap{max-width:800px;margin:auto;padding:20px 14px}.intro,.panel,.tile{background:white;border-radius:15px;box-shadow:0 4px 12px #0e355214}.intro{text-align:center;padding:20px;margin-bottom:20px}.intro p{line-height:1.5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.tile{border:0;cursor:pointer;padding:24px 8px;font-size:15px;font-weight:700;color:#164a75;min-height:115px}.tile span{display:block;font-size:32px;margin-bottom:10px}.tile:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f6b935;outline-offset:2px}.panel{padding:22px;margin:0 0 20px}.panel h2{margin:0 0 18px;font-size:23px}.card{border-left:4px solid #2684c9;background:#f3f9fe;padding:16px;border-radius:10px;margin:12px 0;overflow-wrap:anywhere}.card h3{margin:0 0 10px;font-size:17px}.card p{margin:7px 0;line-height:1.45;white-space:pre-wrap}#lista-novedades p{white-space:pre-wrap}a{overflow-wrap:anywhere}.chip{display:inline-block;border-radius:12px;padding:6px 10px;background:#e5f1fc;color:#13598c;font-size:13px;font-weight:700;margin-bottom:10px}.pending{background:#fff0c5;color:#775400}.field{width:100%;border:1px solid #9eb2c2;border-radius:9px;padding:13px;font-size:16px;margin:0 0 14px}.back,.retry{border:0;border-radius:9px;background:#237fc2;color:#fff;padding:12px 16px;font-weight:bold;cursor:pointer;margin-top:15px}.message{background:#fff2cf;border-radius:10px;padding:14px;line-height:1.5}footer{text-align:center;font-size:12px;color:#607b8e;padding:12px 0 25px}.hidden{display:none!important}@media(max-width:390px){.tile{font-size:14px;padding:20px 5px}.wrap{padding:14px 10px}.panel{padding:15px}}
 </style>
 </head>
 <body>
@@ -43,12 +43,35 @@ let dataset=null,active='';
 const el=id=>document.getElementById(id);
 function node(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=String(txt);return n;}
 async function load(){const response = await fetch('https://script.google.com/macros/s/AKfycbzoXyN7X-C99lNhvedU5SgJLoecF5xPBJ9_NUHad1k3cD7qeY3eEaaxws1KnqR6kxwewQ/exec?formato=json',{cache:'no-store'});if(!response.ok)throw new Error('Error HTTP '+response.status);const json=await response.json();if(!json||typeof json!=='object')throw Error('Formato inválido');return json;}
+// Convierte direcciones web en enlaces sin interpretar HTML del mensaje.
+function textoConEnlaces(destino, valor) {
+  const texto = String(valor ?? '');
+  const patron = /https?:\/\/[^\s<>"']+/gi;
+  let inicio = 0;
+  for (const coincidencia of texto.matchAll(patron)) {
+    const posicion = coincidencia.index;
+    destino.appendChild(document.createTextNode(texto.slice(inicio, posicion)));
+    const completo = coincidencia[0];
+    const url = completo.replace(/[.,;:!?\)\]\}]+$/g, '');
+    if (url) {
+      const enlace = document.createElement('a');
+      enlace.href = url;
+      enlace.textContent = url;
+      enlace.target = '_blank';
+      enlace.rel = 'noopener noreferrer';
+      destino.appendChild(enlace);
+    }
+    destino.appendChild(document.createTextNode(completo.slice(url.length)));
+    inicio = posicion + completo.length;
+  }
+  destino.appendChild(document.createTextNode(texto.slice(inicio)));
+}
 function addMessage(target,message){target.append(node('div','message',message));}
 function draw(items){const target=el('results');target.replaceChildren();if(!items.length){addMessage(target,active==='comunicados'?'Todavía no hay comunicados publicados.':'No se encontraron registros.');return;}
 const schema=schemas[active];for(const record of items){const card=node('article','card');const heading=node('h3','',record[schema.name]||'Sin título');card.append(heading);
 for(const [key,label] of schema.fields){const value=record[key];if(value===undefined||value===null||String(value).trim()==='')continue;
 if(label==='Estado'){card.append(node('span','chip '+(/confirmar/i.test(String(value))?'pending':''),'Estado: '+value));continue;}
-const p=node('p');const strong=node('strong','',label+': ');p.append(strong,document.createTextNode(String(value)));card.append(p);}
+const p=node('p');const strong=node('strong','',label+': ');p.append(strong);textoConEnlaces(p,value);card.append(p);}
 target.append(card);}}
  function mostrarNovedades() {
   const panel = document.getElementById('novedades');
@@ -120,7 +143,7 @@ target.append(card);}}
     titulo.textContent = c['Título'] || 'Comunicado';
 
     const mensaje = document.createElement('p');
-    mensaje.textContent = c['Mensaje'] || '';
+    textoConEnlaces(mensaje, c['Mensaje'] || '');
 
     bloque.appendChild(etiqueta);
     bloque.appendChild(titulo);
